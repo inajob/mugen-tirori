@@ -19,6 +19,7 @@
      let tracks =[] 
      for(i = 1; i < 5; i ++){
        audioElements[i - 1] = document.querySelector('#audio' + i); 
+       audioElements[i - 1].volume = 1/5;
        tracks[i - 1] = audioContext.createMediaElementSource(audioElements[i - 1]);
        tracks[i - 1].connect(audioContext.destination);
        audioElements[i - 1].loop = true;
