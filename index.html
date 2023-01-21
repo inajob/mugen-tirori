@@ -28,13 +28,18 @@
        audioElements[i - 1].preservesPitch = false;
        audioElements[i - 1].play();
      }
+     function clip(n){
+             if(n < 0) return 0;
+             if(n > 1) return 1;
+             return n;
+     }
 
      setInterval(() => {
        for(i = 1; i < 5; i ++){
          if(Math.random() < 0.9){
-         audioElements[i - 1].playbackRate = audioElements[i - 1].playbackRate + (Math.random()-0.5)*0.01;
+         audioElements[i - 1].playbackRate = clip(audioElements[i - 1].playbackRate + (Math.random()-0.5)*0.01);
                }else{
-         audioElements[i - 1].playbackRate = audioElements[i - 1].playbackRate + (Math.random()-0.5)*0.4;
+         audioElements[i - 1].playbackRate = clip(audioElements[i - 1].playbackRate + (Math.random()-0.5)*0.4);
                      }
        }
      }, 100)
